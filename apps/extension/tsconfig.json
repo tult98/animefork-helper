@@ -1,0 +1,24 @@
+{
+  "extends": ["../../tsconfig.base.json", "./.wxt/tsconfig.json"],
+  "compilerOptions": {
+    "outDir": "out-tsc",
+    "tsBuildInfoFile": "out-tsc/tsconfig.tsbuildinfo",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "types": ["chrome", "node"],
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "customConditions": []
+  },
+  "include": [
+    "src",
+    "client/src",
+    ".wxt/wxt.d.ts",
+    "wxt.config.ts",
+    "package.json",
+    "client/package.json",
+    "config/*.json",
+    "fixtures/*.json"
+  ]
+}

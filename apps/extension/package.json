@@ -1,0 +1,102 @@
+{
+  "name": "extension-animevsub-helper",
+  "displayName": "Animefork Helper",
+  "description": "Extension add API helper for AnimeVsub",
+  "version": "1.0.51",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build && wxt build -b firefox",
+    "prepare:types": "wxt prepare",
+    "pack": "wxt zip && wxt zip -b firefox && mkdir -p artifacts && crx pack dist/chrome-mv3 -o artifacts/animevsub-helper-chrome-mv3.crx",
+    "test": "vitest run",
+    "lint": "eslint ."
+  },
+  "nx": {
+    "targets": {
+      "prepare:types": {
+        "cache": true,
+        "inputs": [
+          "{projectRoot}/wxt.config.ts",
+          "{projectRoot}/package.json",
+          "{projectRoot}/src/entrypoints/**/*",
+          "{projectRoot}/public/**/*"
+        ],
+        "outputs": [
+          "{projectRoot}/.wxt"
+        ]
+      },
+      "typecheck": {
+        "dependsOn": [
+          "^typecheck",
+          "prepare:types"
+        ]
+      },
+      "lint": {
+        "cache": true,
+        "dependsOn": [
+          "prepare:types"
+        ],
+        "inputs": [
+          "default",
+          "{projectRoot}/eslint.config.mjs"
+        ]
+      },
+      "build": {
+        "cache": true,
+        "dependsOn": [
+          "prepare:types"
+        ],
+        "inputs": [
+          "production"
+        ],
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      },
+      "test": {
+        "cache": true,
+        "dependsOn": [
+          "build"
+        ],
+        "inputs": [
+          "default"
+        ]
+      },
+      "dev": {
+        "continuous": true,
+        "dependsOn": [
+          "prepare:types"
+        ]
+      },
+      "dev:firefox": {
+        "continuous": true,
+        "dependsOn": [
+          "prepare:types"
+        ]
+      },
+      "pack": {
+        "dependsOn": [
+          "prepare:types"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/artifacts"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/chrome": "0.3.7",
+    "@webext-core/messaging": "4.0.1",
+    "crx": "5.0.1",
+    "eslint": "10.14.0",
+    "typescript-eslint": "8.72.2",
+    "vitest": "5.1.0",
+    "web-ext": "10.8.0",
+    "wxt": "0.21.5"
+  }
+}

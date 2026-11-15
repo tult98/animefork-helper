@@ -1,0 +1,17 @@
+{
+  "name": "animefork-helper",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm --filter extension-animevsub-helper build",
+    "test": "pnpm --filter extension-animevsub-helper test",
+    "lint": "pnpm --filter extension-animevsub-helper prepare:types && pnpm --filter extension-animevsub-helper lint"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prettier": "^3.8.1",
+    "tslib": "^2.3.0",
+    "typescript": "npm:@typescript/typescript6@6.0.2"
+  },
+  "packageManager": "pnpm@10.27.0"
+}
