@@ -1,8 +1,8 @@
 {
   "name": "extension-animevsub-helper",
   "displayName": "Animefork Helper",
-  "description": "Extension add API helper for AnimeVsub",
-  "version": "1.0.53",
+  "description": "Lets the Animefork web app load anime from sites that block cross-origin requests.",
+  "version": "1.0.54",
   "private": true,
   "type": "module",
   "scripts": {
