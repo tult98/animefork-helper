@@ -11,13 +11,7 @@ export default defineConfig({
     name: pkg.displayName,
     description: pkg.description,
     icons: { 16: 'icon.png', 48: 'icon.png', 128: 'icon.png' },
-    permissions: [
-      'activeTab',
-      'scripting',
-      'cookies',
-      'declarativeNetRequest',
-      'storage',
-    ],
+    permissions: ['cookies', 'declarativeNetRequest', 'storage'],
     host_permissions: ['*://*/*'],
     // The injector loads these two page-world scripts with a <script src> tag.
     web_accessible_resources: [
