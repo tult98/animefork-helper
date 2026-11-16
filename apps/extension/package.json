@@ -2,7 +2,7 @@
   "name": "extension-animevsub-helper",
   "displayName": "Animefork Helper",
   "description": "Lets the Animefork web app load anime from sites that block cross-origin requests.",
-  "version": "1.0.54",
+  "version": "1.0.55",
   "private": true,
   "type": "module",
   "scripts": {
